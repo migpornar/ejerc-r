@@ -103,41 +103,41 @@ tabla
 Vamos a crear una aplicación `Shiny` usando el paquete `ggplot2`.
 
 ```{r}
-library(ggplot2)
-require(shiny)
-shinyApp(
-  
-  ui = fluidPage(    
-  
-  titlePanel("Histograma del peso de los pollos según el tiempo"),
-  
-  sidebarLayout(      
-    
-    sidebarPanel(
-      selectInput("region", "Tiempo (días):", 
-                  choices=unique(ChickWeight$Time)),
-      hr()
-    ),
-    
-    mainPanel(
-      plotOutput("weightPlot")  
-    )
-    
-  )
-),
-
-  server = function(input, output) {
-  
-  output$weightPlot <- renderPlot({
-    
-    ggplot(subset(ChickWeight, Time == input$region), aes(x=weight)) +
-            geom_histogram(bins=6, colour="#FE9A2E", fill="#F7BE81") + 
-            labs(x="Peso (g)", y = "Densidad")
-  })
-},
-
-  options = list(height = 700)
-)
+# library(ggplot2)
+# require(shiny)
+# shinyApp(
+#   
+#   ui = fluidPage(    
+#   
+#   titlePanel("Histograma del peso de los pollos según el tiempo"),
+#   
+#   sidebarLayout(      
+#     
+#     sidebarPanel(
+#       selectInput("region", "Tiempo (días):", 
+#                   choices=unique(ChickWeight$Time)),
+#       hr()
+#     ),
+#     
+#     mainPanel(
+#       plotOutput("weightPlot")  
+#     )
+#     
+#   )
+# ),
+# 
+#   server = function(input, output) {
+#   
+#   output$weightPlot <- renderPlot({
+#     
+#     ggplot(subset(ChickWeight, Time == input$region), aes(x=weight)) +
+#             geom_histogram(bins=6, colour="#FE9A2E", fill="#F7BE81") + 
+#             labs(x="Peso (g)", y = "Densidad")
+#   })
+# },
+# 
+#   options = list(height = 700)
+# )
 ```
 
 

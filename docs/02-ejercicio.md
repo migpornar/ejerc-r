@@ -8,36 +8,63 @@ output:
 runtime: shiny
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
+
 # - `trees`
 
 ## Cargando los datos
 
 Cargamos la librería `trees`.
 
-```{r, message=FALSE}
+
+```r
 data(trees)
 attach(trees)
 head(trees)
 ```
 
+```
+##   Girth Height Volume
+## 1   8.3     70   10.3
+## 2   8.6     65   10.3
+## 3   8.8     63   10.2
+## 4  10.5     72   16.4
+## 5  10.7     81   18.8
+## 6  10.8     83   19.7
+```
+
 Veamos un breve resumen de los datos.
 
-```{r}
+
+```r
 summary(trees)
+```
+
+```
+##      Girth           Height       Volume     
+##  Min.   : 8.30   Min.   :63   Min.   :10.20  
+##  1st Qu.:11.05   1st Qu.:72   1st Qu.:19.40  
+##  Median :12.90   Median :76   Median :24.20  
+##  Mean   :13.25   Mean   :76   Mean   :30.17  
+##  3rd Qu.:15.25   3rd Qu.:80   3rd Qu.:37.30  
+##  Max.   :20.60   Max.   :87   Max.   :77.00
 ```
 
 ## Gráfico de grupos de `Height`
 
 Vamos a escoger 3 grupos en los que dividir `Height`. Por ejemplo,
-```{r}
+
+```r
 cut(c(63,87),breaks=3)
 ```
 
+```
+## [1] (63,71] (79,87]
+## Levels: (63,71] (71,79] (79,87]
+```
+
 Dividimos los grupos como sigue,
-```{r}
+
+```r
 df.G1 = subset(trees, Height <= 71,select=c("Girth","Volume"))
 df.G2 = subset(trees, 71 < Height & Height <= 79,select=c("Girth","Volume"))
 df.G3 = subset(trees, 79 < Height ,select=c("Girth","Volume"))
@@ -45,15 +72,16 @@ df.G3 = subset(trees, 79 < Height ,select=c("Girth","Volume"))
 
 Para hacer los gráficos, usaremos la librería `ggplot2`, y para representar los distintos grupos en la misma gráfica `gridExtra`
 
-```{r}
+
+```r
 library(ggplot2)
 library(gridExtra)
 ```
 
 Calculamos las gráficas,
 
-```{r}
 
+```r
 pg1 <- ggplot(df.G1, aes(x=Girth)) +
             geom_histogram(binwidth = 0.5, colour="#43A939", fill="#6ED364") + 
             labs(x="Peso (g) para el grupo 1", y = "Densidad") + 
@@ -70,7 +98,10 @@ pg3 <- ggplot(df.G3, aes(x=Girth)) +
 grid.arrange(pg1,pg2,pg3, top="Gráfica para Girth")
 ```
 
-```{r}
+<img src="02-ejercicio_files/figure-html/unnamed-chunk-6-1.png" width="672" />
+
+
+```r
 library(ggplot2)
 require(gridExtra)
 
@@ -90,10 +121,13 @@ pg3 <- ggplot(df.G3, aes(x=Volume)) +
 grid.arrange(pg1,pg2,pg3, top="Gráfica para Volumen")
 ```
 
+<img src="02-ejercicio_files/figure-html/unnamed-chunk-7-1.png" width="672" />
+
 ## Gráfica de dispersión
 
 Vamos a crearnos un dataframe que contenga todos los elementos diferenciados por el grupo según su altura al que pertenezca.
-```{r}
+
+```r
 df.G1$grupo <- c("1")
 df.G2$grupo <- c("2")
 df.G3$grupo <- c("3")
@@ -101,21 +135,28 @@ df.Grupos = rbind(df.G1,df.G2,df.G3)
 ```
  
 Con este dataframe, obtenemos la siguiente gráfica,
-```{r}
+
+```r
 qplot(Volume,Girth,data=df.Grupos,col=grupo)
 ```
+
+<img src="02-ejercicio_files/figure-html/unnamed-chunk-9-1.png" width="672" />
 
 ## Regresión para cada par de variables
 
 Antes vamos a realizar un estudio preliminar de la relación de las variables.
 
-```{r}
+
+```r
 pairs(trees)
 ```
 
+<img src="02-ejercicio_files/figure-html/unnamed-chunk-10-1.png" width="672" />
+
 Vamos a crear una aplicación `Shiny` para interactuar con los modelos.
 
-```{r}
+
+```r
 # require(shiny)
 # shinyApp(
 #   
@@ -154,7 +195,8 @@ Vamos a crear una aplicación `Shiny` para interactuar con los modelos.
 
 Además vamos a interactuar con su coeficiente de correlación lineal
 
-```{r}
+
+```r
 # require(shiny)
 # shinyApp(
 #   

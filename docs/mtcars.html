@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Ejercicios FESTAD</title>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+  <meta name="description" content="Ejercicios y algunas aplicaciones Shiny">
+  <meta name="generator" content="bookdown 0.3 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Ejercicios FESTAD" />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="http://github.com/migpornar/ejerc-r" />
+  
+  <meta property="og:description" content="Ejercicios y algunas aplicaciones Shiny" />
+  <meta name="github-repo" content="migpornar/ejerc-r" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Ejercicios FESTAD" />
+  
+  <meta name="twitter:description" content="Ejercicios y algunas aplicaciones Shiny" />
+  
+
+<meta name="author" content="Miguel Ángel Porras">
+
+
+<meta name="date" content="2017-01-21">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="trees.html">
+
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Ejercicios FESTAD</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introducción</a></li>
+<li class="chapter" data-level="1" data-path="chickweight.html"><a href="chickweight.html"><i class="fa fa-check"></i><b>1</b> - <code>ChickWeight</code></a><ul>
+<li class="chapter" data-level="1.1" data-path="chickweight.html"><a href="chickweight.html#cargando-los-datos"><i class="fa fa-check"></i><b>1.1</b> Cargando los datos</a></li>
+<li class="chapter" data-level="1.2" data-path="chickweight.html"><a href="chickweight.html#tablas-de-frencuencia"><i class="fa fa-check"></i><b>1.2</b> Tablas de frencuencia</a></li>
+<li class="chapter" data-level="1.3" data-path="chickweight.html"><a href="chickweight.html#buscando-outliers"><i class="fa fa-check"></i><b>1.3</b> Buscando outliers</a></li>
+<li class="chapter" data-level="1.4" data-path="chickweight.html"><a href="chickweight.html#tabla-de-frecuencia-conjunta"><i class="fa fa-check"></i><b>1.4</b> Tabla de frecuencia conjunta</a></li>
+<li class="chapter" data-level="1.5" data-path="chickweight.html"><a href="chickweight.html#histograma-del-peso-en-cada-grupo-de-edad"><i class="fa fa-check"></i><b>1.5</b> Histograma del peso en cada grupo de edad</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="trees.html"><a href="trees.html"><i class="fa fa-check"></i><b>2</b> - <code>trees</code></a><ul>
+<li class="chapter" data-level="2.1" data-path="trees.html"><a href="trees.html#cargando-los-datos-1"><i class="fa fa-check"></i><b>2.1</b> Cargando los datos</a></li>
+<li class="chapter" data-level="2.2" data-path="trees.html"><a href="trees.html#grafico-de-grupos-de-height"><i class="fa fa-check"></i><b>2.2</b> Gráfico de grupos de <code>Height</code></a></li>
+<li class="chapter" data-level="2.3" data-path="trees.html"><a href="trees.html#grafica-de-dispersion"><i class="fa fa-check"></i><b>2.3</b> Gráfica de dispersión</a></li>
+<li class="chapter" data-level="2.4" data-path="trees.html"><a href="trees.html#regresion-para-cada-par-de-variables"><i class="fa fa-check"></i><b>2.4</b> Regresión para cada par de variables</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="mtcars.html"><a href="mtcars.html"><i class="fa fa-check"></i><b>3</b> - <code>mtcars</code></a><ul>
+<li class="chapter" data-level="3.1" data-path="mtcars.html"><a href="mtcars.html#cargando-los-datos-2"><i class="fa fa-check"></i><b>3.1</b> Cargando los datos</a></li>
+<li class="chapter" data-level="3.2" data-path="mtcars.html"><a href="mtcars.html#tablas-de-frecuencias"><i class="fa fa-check"></i><b>3.2</b> Tablas de frecuencias</a></li>
+<li class="chapter" data-level="3.3" data-path="mtcars.html"><a href="mtcars.html#tablas-de-frecuencia-absolutas-relativas-y-acumuladas"><i class="fa fa-check"></i><b>3.3</b> Tablas de frecuencia absolutas, relativas y acumuladas</a></li>
+<li class="chapter" data-level="3.4" data-path="mtcars.html"><a href="mtcars.html#resumen-descriptivo"><i class="fa fa-check"></i><b>3.4</b> Resumen descriptivo</a></li>
+<li class="chapter" data-level="3.5" data-path="mtcars.html"><a href="mtcars.html#outliers"><i class="fa fa-check"></i><b>3.5</b> Outliers</a></li>
+<li class="chapter" data-level="3.6" data-path="mtcars.html"><a href="mtcars.html#histograma"><i class="fa fa-check"></i><b>3.6</b> Histograma</a></li>
+<li class="chapter" data-level="3.7" data-path="mtcars.html"><a href="mtcars.html#regresion"><i class="fa fa-check"></i><b>3.7</b> Regresión</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Ejercicios FESTAD</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="mtcars" class="section level1">
+<h1><span class="header-section-number">Ejercicio 3</span> - <code>mtcars</code></h1>
+<div id="cargando-los-datos-2" class="section level2">
+<h2><span class="header-section-number">3.1</span> Cargando los datos</h2>
+<p>Para este ejercicio usaremos la librería <code>mtcars</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">data</span>(mtcars)
+<span class="kw">attach</span>(mtcars)
+<span class="kw">head</span>(mtcars)</code></pre></div>
+<pre><code>##                    mpg cyl disp  hp drat    wt  qsec vs am gear carb
+## Mazda RX4         21.0   6  160 110 3.90 2.620 16.46  0  1    4    4
+## Mazda RX4 Wag     21.0   6  160 110 3.90 2.875 17.02  0  1    4    4
+## Datsun 710        22.8   4  108  93 3.85 2.320 18.61  1  1    4    1
+## Hornet 4 Drive    21.4   6  258 110 3.08 3.215 19.44  1  0    3    1
+## Hornet Sportabout 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2
+## Valiant           18.1   6  225 105 2.76 3.460 20.22  1  0    3    1</code></pre>
+<p>Veamos un breve resumen de los datos.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(mtcars)</code></pre></div>
+<pre><code>##       mpg             cyl             disp             hp       
+##  Min.   :10.40   Min.   :4.000   Min.   : 71.1   Min.   : 52.0  
+##  1st Qu.:15.43   1st Qu.:4.000   1st Qu.:120.8   1st Qu.: 96.5  
+##  Median :19.20   Median :6.000   Median :196.3   Median :123.0  
+##  Mean   :20.09   Mean   :6.188   Mean   :230.7   Mean   :146.7  
+##  3rd Qu.:22.80   3rd Qu.:8.000   3rd Qu.:326.0   3rd Qu.:180.0  
+##  Max.   :33.90   Max.   :8.000   Max.   :472.0   Max.   :335.0  
+##       drat             wt             qsec             vs        
+##  Min.   :2.760   Min.   :1.513   Min.   :14.50   Min.   :0.0000  
+##  1st Qu.:3.080   1st Qu.:2.581   1st Qu.:16.89   1st Qu.:0.0000  
+##  Median :3.695   Median :3.325   Median :17.71   Median :0.0000  
+##  Mean   :3.597   Mean   :3.217   Mean   :17.85   Mean   :0.4375  
+##  3rd Qu.:3.920   3rd Qu.:3.610   3rd Qu.:18.90   3rd Qu.:1.0000  
+##  Max.   :4.930   Max.   :5.424   Max.   :22.90   Max.   :1.0000  
+##        am              gear            carb      
+##  Min.   :0.0000   Min.   :3.000   Min.   :1.000  
+##  1st Qu.:0.0000   1st Qu.:3.000   1st Qu.:2.000  
+##  Median :0.0000   Median :4.000   Median :2.000  
+##  Mean   :0.4062   Mean   :3.688   Mean   :2.812  
+##  3rd Qu.:1.0000   3rd Qu.:4.000   3rd Qu.:4.000  
+##  Max.   :1.0000   Max.   :5.000   Max.   :8.000</code></pre>
+</div>
+<div id="tablas-de-frecuencias" class="section level2">
+<h2><span class="header-section-number">3.2</span> Tablas de frecuencias</h2>
+<p>Calculamos las tablas de frecuencias de las variables <code>cyl</code> y <code>gear</code></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">table</span>(cyl)</code></pre></div>
+<pre><code>## cyl
+##  4  6  8 
+## 11  7 14</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">table</span>(gear)</code></pre></div>
+<pre><code>## gear
+##  3  4  5 
+## 15 12  5</code></pre>
+<p>Para obtener la tabla con formato latex, usamos el paquete <code>Knitr</code></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(knitr)
+<span class="kw">print</span>(knitr::<span class="kw">kable</span>(<span class="kw">as.data.frame</span>(<span class="kw">table</span>(gear)), <span class="dt">format =</span> <span class="st">&quot;latex&quot;</span>,
+       <span class="dt">col.names =</span> <span class="kw">c</span>(<span class="st">&quot;Cilindradas&quot;</span>,<span class="st">&quot;Num. Cilindradas&quot;</span>),<span class="dt">align=</span><span class="st">&#39;c&#39;</span>,
+       <span class="dt">caption=</span><span class="st">&quot;Cilindradas por coches&quot;</span>))</code></pre></div>
+<pre><code>## \begin{table}
+## 
+## \caption{(\#tab:unnamed-chunk-5)Cilindradas por coches}
+## \centering
+## \begin{tabular}[t]{c|c}
+## \hline
+## Cilindradas &amp; Num. Cilindradas\\
+## \hline
+## 3 &amp; 15\\
+## \hline
+## 4 &amp; 12\\
+## \hline
+## 5 &amp; 5\\
+## \hline
+## \end{tabular}
+## \end{table}</code></pre>
+<p>Como este documento esta hecho en <code>markdown</code>, exportamos la tabla como <code>markdown</code>,</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(knitr)
+<span class="kw">print</span>(knitr::<span class="kw">kable</span>(<span class="kw">as.data.frame</span>(<span class="kw">table</span>(gear)), <span class="dt">format =</span> <span class="st">&quot;markdown&quot;</span>,
+       <span class="dt">col.names =</span> <span class="kw">c</span>(<span class="st">&quot;Cilindradas&quot;</span>,<span class="st">&quot;Num. Cilindradas&quot;</span>),<span class="dt">align=</span><span class="st">&#39;c&#39;</span>,
+       <span class="dt">caption=</span><span class="st">&quot;Cilindradas por coches&quot;</span>))</code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="center">Cilindradas</th>
+<th align="center">Num. Cilindradas</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">3</td>
+<td align="center">15</td>
+</tr>
+<tr class="even">
+<td align="center">4</td>
+<td align="center">12</td>
+</tr>
+<tr class="odd">
+<td align="center">5</td>
+<td align="center">5</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="tablas-de-frecuencia-absolutas-relativas-y-acumuladas" class="section level2">
+<h2><span class="header-section-number">3.3</span> Tablas de frecuencia absolutas, relativas y acumuladas</h2>
+<p>Realizaremos este apartado para las variables <code>am</code> y <code>carb</code>. La tabla de frecuencia absoluta es,</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">print</span>(knitr::<span class="kw">kable</span>( <span class="kw">table</span>(am,carb), <span class="dt">format =</span> <span class="st">&quot;markdown&quot;</span>,
+<span class="dt">align=</span><span class="st">&#39;c&#39;</span>,<span class="dt">caption=</span><span class="st">&quot;Tabla Transmisión-Nº de carburadores&quot;</span>))</code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="center">1</th>
+<th align="center">2</th>
+<th align="center">3</th>
+<th align="center">4</th>
+<th align="center">6</th>
+<th align="center">8</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">0</td>
+<td align="center">3</td>
+<td align="center">6</td>
+<td align="center">3</td>
+<td align="center">7</td>
+<td align="center">0</td>
+<td align="center">0</td>
+</tr>
+<tr class="even">
+<td align="left">1</td>
+<td align="center">4</td>
+<td align="center">4</td>
+<td align="center">0</td>
+<td align="center">3</td>
+<td align="center">1</td>
+<td align="center">1</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">print</span>(knitr::<span class="kw">kable</span>(<span class="kw">table</span>(am,carb), <span class="dt">format =</span> <span class="st">&quot;markdown&quot;</span>,
+<span class="dt">align=</span><span class="st">&#39;c&#39;</span>,<span class="dt">caption=</span><span class="st">&quot;Tabla Transmisión-Nº de carburadores&quot;</span>))</code></pre></div>
+<p>La tabla de frecuencia relativa es,</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">print</span>(knitr::<span class="kw">kable</span>(<span class="kw">prop.table</span>(<span class="kw">table</span>(am,carb)), <span class="dt">format =</span> <span class="st">&quot;markdown&quot;</span>,
+<span class="dt">align=</span><span class="st">&#39;c&#39;</span>,<span class="dt">caption=</span><span class="st">&quot;Tabla Transmisión-Nº de carburadores&quot;</span>))</code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="center">1</th>
+<th align="center">2</th>
+<th align="center">3</th>
+<th align="center">4</th>
+<th align="center">6</th>
+<th align="center">8</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">0</td>
+<td align="center">0.09375</td>
+<td align="center">0.1875</td>
+<td align="center">0.09375</td>
+<td align="center">0.21875</td>
+<td align="center">0.00000</td>
+<td align="center">0.00000</td>
+</tr>
+<tr class="even">
+<td align="left">1</td>
+<td align="center">0.12500</td>
+<td align="center">0.1250</td>
+<td align="center">0.00000</td>
+<td align="center">0.09375</td>
+<td align="center">0.03125</td>
+<td align="center">0.03125</td>
+</tr>
+</tbody>
+</table>
+<p>La tabla de frecuencia acumulada para <code>carb</code> es,</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">print</span>(knitr::<span class="kw">kable</span>(<span class="kw">cumsum</span>(<span class="kw">table</span>(carb))), <span class="dt">format =</span> <span class="st">&quot;markdown&quot;</span>)</code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="center">1</th>
+<th align="center">2</th>
+<th align="center">3</th>
+<th align="center">4</th>
+<th align="center">6</th>
+<th align="center">8</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"></td>
+<td align="center">7</td>
+<td align="center">17</td>
+<td align="center">20</td>
+<td align="center">30</td>
+<td align="center">31</td>
+<td align="center">32</td>
+</tr>
+</tbody>
+</table>
+<p>La tabla de frecuencia acumulada para <code>am</code> es,</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">print</span>(knitr::<span class="kw">kable</span>(<span class="kw">cumsum</span>(<span class="kw">table</span>(am))), <span class="dt">format =</span> <span class="st">&quot;markdown&quot;</span>)</code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="center">0</th>
+<th align="center">1</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"></td>
+<td align="center">19</td>
+<td align="center">32</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="resumen-descriptivo" class="section level2">
+<h2><span class="header-section-number">3.4</span> Resumen descriptivo</h2>
+<p>Con la función <code>summary()</code>, realiazamos un estudio sobre nuestros datos,</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(mtcars)</code></pre></div>
+<pre><code>##       mpg             cyl             disp             hp       
+##  Min.   :10.40   Min.   :4.000   Min.   : 71.1   Min.   : 52.0  
+##  1st Qu.:15.43   1st Qu.:4.000   1st Qu.:120.8   1st Qu.: 96.5  
+##  Median :19.20   Median :6.000   Median :196.3   Median :123.0  
+##  Mean   :20.09   Mean   :6.188   Mean   :230.7   Mean   :146.7  
+##  3rd Qu.:22.80   3rd Qu.:8.000   3rd Qu.:326.0   3rd Qu.:180.0  
+##  Max.   :33.90   Max.   :8.000   Max.   :472.0   Max.   :335.0  
+##       drat             wt             qsec             vs        
+##  Min.   :2.760   Min.   :1.513   Min.   :14.50   Min.   :0.0000  
+##  1st Qu.:3.080   1st Qu.:2.581   1st Qu.:16.89   1st Qu.:0.0000  
+##  Median :3.695   Median :3.325   Median :17.71   Median :0.0000  
+##  Mean   :3.597   Mean   :3.217   Mean   :17.85   Mean   :0.4375  
+##  3rd Qu.:3.920   3rd Qu.:3.610   3rd Qu.:18.90   3rd Qu.:1.0000  
+##  Max.   :4.930   Max.   :5.424   Max.   :22.90   Max.   :1.0000  
+##        am              gear            carb      
+##  Min.   :0.0000   Min.   :3.000   Min.   :1.000  
+##  1st Qu.:0.0000   1st Qu.:3.000   1st Qu.:2.000  
+##  Median :0.0000   Median :4.000   Median :2.000  
+##  Mean   :0.4062   Mean   :3.688   Mean   :2.812  
+##  3rd Qu.:1.0000   3rd Qu.:4.000   3rd Qu.:4.000  
+##  Max.   :1.0000   Max.   :5.000   Max.   :8.000</code></pre>
+</div>
+<div id="outliers" class="section level2">
+<h2><span class="header-section-number">3.5</span> Outliers</h2>
+<p>Vamos a estudiar los posibles <code>outliers</code> de la variable <code>wt</code>. Primero la representamos por un diagrama de caja y bigote</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">gr &lt;-<span class="st"> </span><span class="kw">boxplot</span>(wt)</code></pre></div>
+<p><img src="03-ejercicio_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+<p>Observamos que hay dos datos atípicos. Veamos cuales son.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">gr$out</code></pre></div>
+<pre><code>## [1] 5.424 5.345</code></pre>
+<p>A continuación, lo veremos con la variable <code>hp</code></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">gr &lt;-<span class="st"> </span><span class="kw">boxplot</span>(hp)</code></pre></div>
+<p><img src="03-ejercicio_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
+<p>Observamos que hay un valor atípico.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">gr$out</code></pre></div>
+<pre><code>## [1] 335</code></pre>
+</div>
+<div id="histograma" class="section level2">
+<h2><span class="header-section-number">3.6</span> Histograma</h2>
+<p>Vamos a calcular el histograma para <code>drat</code> y <code>carb</code></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">hist</span>(drat)</code></pre></div>
+<p><img src="03-ejercicio_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">hist</span>(carb)</code></pre></div>
+<p><img src="03-ejercicio_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
+</div>
+<div id="regresion" class="section level2">
+<h2><span class="header-section-number">3.7</span> Regresión</h2>
+<p>Estudiamos que variables son mas adecuadas para hacer una regresión.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">pairs</span>(mtcars)</code></pre></div>
+<p><img src="03-ejercicio_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
+<p>Interactuaremos con la siguiente aplicación <code>shiny</code> para todas las variables de los datos.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># require(shiny)</span>
+<span class="co"># shinyApp(</span>
+<span class="co">#   </span>
+<span class="co">#   ui = fluidPage(    </span>
+<span class="co">#   </span>
+<span class="co">#   titlePanel(&quot;Regresión de Y~X&quot;),</span>
+<span class="co">#   </span>
+<span class="co">#   sidebarLayout(      </span>
+<span class="co">#     </span>
+<span class="co">#     sidebarPanel(</span>
+<span class="co">#       selectInput(&quot;variable1&quot;, &quot;Variable Y:&quot;, </span>
+<span class="co">#                   choices=c(&quot;mpg&quot;, &quot;cyl&quot;,   </span>
+<span class="co">#                  &quot;disp&quot;,&quot;hp&quot;,&quot;drat&quot;,&quot;wt&quot;,&quot;qsec&quot;,&quot;vs&quot;,&quot;am&quot;,&quot;gear&quot;,&quot;carb&quot;)),</span>
+<span class="co">#       hr(),</span>
+<span class="co">#       selectInput(&quot;variable2&quot;, &quot;Variable X:&quot;, </span>
+<span class="co">#                   choices=c(&quot;mpg&quot;, &quot;cyl&quot;, </span>
+<span class="co">#                  &quot;disp&quot;,&quot;hp&quot;,&quot;drat&quot;,&quot;wt&quot;,&quot;qsec&quot;,&quot;vs&quot;,&quot;am&quot;,&quot;gear&quot;,&quot;carb&quot;))</span>
+<span class="co">#     ),</span>
+<span class="co">#     </span>
+<span class="co">#     mainPanel(</span>
+<span class="co">#       fluidRow(column(12, verbatimTextOutput(&quot;correlacion&quot;)))</span>
+<span class="co">#     )</span>
+<span class="co">#     </span>
+<span class="co">#   )</span>
+<span class="co"># ),</span>
+<span class="co"># </span>
+<span class="co">#   server = function(input, output) {</span>
+<span class="co"># </span>
+<span class="co">#   output$correlacion &lt;- renderPrint({</span>
+<span class="co">#     summary(lm(mtcars[input$variable1][,1] ~ mtcars[input$variable2][,1]))</span>
+<span class="co">#     #trees[input$variable1][,1], </span>
+<span class="co">#   })</span>
+<span class="co"># },</span>
+<span class="co"># </span>
+<span class="co">#   options = list(height = 750)</span>
+<span class="co"># )</span></code></pre></div>
+<p>De la misma manera, lo haremos para el coeficiente de correlación lineal.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># require(shiny)</span>
+<span class="co"># shinyApp(</span>
+<span class="co">#   </span>
+<span class="co">#   ui = fluidPage(    </span>
+<span class="co">#   </span>
+<span class="co">#   titlePanel(&quot;Coeficiente de regresión de Y~X&quot;),</span>
+<span class="co">#   </span>
+<span class="co">#   sidebarLayout(      </span>
+<span class="co">#     </span>
+<span class="co">#     sidebarPanel(</span>
+<span class="co">#       selectInput(&quot;variable1&quot;, &quot;Variable Y:&quot;, </span>
+<span class="co">#                   choices=c(&quot;mpg&quot;, &quot;cyl&quot;,   </span>
+<span class="co">#                  &quot;disp&quot;,&quot;hp&quot;,&quot;drat&quot;,&quot;wt&quot;,&quot;qsec&quot;,&quot;vs&quot;,&quot;am&quot;,&quot;gear&quot;,&quot;carb&quot;)),</span>
+<span class="co">#       hr(),</span>
+<span class="co">#       selectInput(&quot;variable2&quot;, &quot;Variable X:&quot;, </span>
+<span class="co">#                   choices=c(&quot;mpg&quot;, &quot;cyl&quot;,   </span>
+<span class="co">#                  &quot;disp&quot;,&quot;hp&quot;,&quot;drat&quot;,&quot;wt&quot;,&quot;qsec&quot;,&quot;vs&quot;,&quot;am&quot;,&quot;gear&quot;,&quot;carb&quot;))</span>
+<span class="co">#     ),</span>
+<span class="co">#     </span>
+<span class="co">#     mainPanel(</span>
+<span class="co">#       fluidRow(column(12, verbatimTextOutput(&quot;correlacion&quot;)))</span>
+<span class="co">#     )</span>
+<span class="co">#     </span>
+<span class="co">#   )</span>
+<span class="co"># ),</span>
+<span class="co"># </span>
+<span class="co">#   server = function(input, output) {</span>
+<span class="co"># </span>
+<span class="co">#   output$correlacion &lt;- renderPrint({</span>
+<span class="co">#     cor(mtcars[input$variable1][,1],mtcars[input$variable2][,1])</span>
+<span class="co">#   })</span>
+<span class="co"># },</span>
+<span class="co"># </span>
+<span class="co">#   options = list(height = 450)</span>
+<span class="co"># )</span></code></pre></div>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="trees.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

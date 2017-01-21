@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Ejercicios FESTAD</title>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+  <meta name="description" content="Ejercicios y algunas aplicaciones Shiny">
+  <meta name="generator" content="bookdown 0.3 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Ejercicios FESTAD" />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="http://github.com/migpornar/ejerc-r" />
+  
+  <meta property="og:description" content="Ejercicios y algunas aplicaciones Shiny" />
+  <meta name="github-repo" content="migpornar/ejerc-r" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Ejercicios FESTAD" />
+  
+  <meta name="twitter:description" content="Ejercicios y algunas aplicaciones Shiny" />
+  
+
+<meta name="author" content="Miguel Ángel Porras">
+
+
+<meta name="date" content="2017-01-21">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="index.html">
+<link rel="next" href="trees.html">
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Ejercicios FESTAD</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introducción</a></li>
+<li class="chapter" data-level="1" data-path="chickweight.html"><a href="chickweight.html"><i class="fa fa-check"></i><b>1</b> - <code>ChickWeight</code></a><ul>
+<li class="chapter" data-level="1.1" data-path="chickweight.html"><a href="chickweight.html#cargando-los-datos"><i class="fa fa-check"></i><b>1.1</b> Cargando los datos</a></li>
+<li class="chapter" data-level="1.2" data-path="chickweight.html"><a href="chickweight.html#tablas-de-frencuencia"><i class="fa fa-check"></i><b>1.2</b> Tablas de frencuencia</a></li>
+<li class="chapter" data-level="1.3" data-path="chickweight.html"><a href="chickweight.html#buscando-outliers"><i class="fa fa-check"></i><b>1.3</b> Buscando outliers</a></li>
+<li class="chapter" data-level="1.4" data-path="chickweight.html"><a href="chickweight.html#tabla-de-frecuencia-conjunta"><i class="fa fa-check"></i><b>1.4</b> Tabla de frecuencia conjunta</a></li>
+<li class="chapter" data-level="1.5" data-path="chickweight.html"><a href="chickweight.html#histograma-del-peso-en-cada-grupo-de-edad"><i class="fa fa-check"></i><b>1.5</b> Histograma del peso en cada grupo de edad</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="trees.html"><a href="trees.html"><i class="fa fa-check"></i><b>2</b> - <code>trees</code></a><ul>
+<li class="chapter" data-level="2.1" data-path="trees.html"><a href="trees.html#cargando-los-datos-1"><i class="fa fa-check"></i><b>2.1</b> Cargando los datos</a></li>
+<li class="chapter" data-level="2.2" data-path="trees.html"><a href="trees.html#grafico-de-grupos-de-height"><i class="fa fa-check"></i><b>2.2</b> Gráfico de grupos de <code>Height</code></a></li>
+<li class="chapter" data-level="2.3" data-path="trees.html"><a href="trees.html#grafica-de-dispersion"><i class="fa fa-check"></i><b>2.3</b> Gráfica de dispersión</a></li>
+<li class="chapter" data-level="2.4" data-path="trees.html"><a href="trees.html#regresion-para-cada-par-de-variables"><i class="fa fa-check"></i><b>2.4</b> Regresión para cada par de variables</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="mtcars.html"><a href="mtcars.html"><i class="fa fa-check"></i><b>3</b> - <code>mtcars</code></a><ul>
+<li class="chapter" data-level="3.1" data-path="mtcars.html"><a href="mtcars.html#cargando-los-datos-2"><i class="fa fa-check"></i><b>3.1</b> Cargando los datos</a></li>
+<li class="chapter" data-level="3.2" data-path="mtcars.html"><a href="mtcars.html#tablas-de-frecuencias"><i class="fa fa-check"></i><b>3.2</b> Tablas de frecuencias</a></li>
+<li class="chapter" data-level="3.3" data-path="mtcars.html"><a href="mtcars.html#tablas-de-frecuencia-absolutas-relativas-y-acumuladas"><i class="fa fa-check"></i><b>3.3</b> Tablas de frecuencia absolutas, relativas y acumuladas</a></li>
+<li class="chapter" data-level="3.4" data-path="mtcars.html"><a href="mtcars.html#resumen-descriptivo"><i class="fa fa-check"></i><b>3.4</b> Resumen descriptivo</a></li>
+<li class="chapter" data-level="3.5" data-path="mtcars.html"><a href="mtcars.html#outliers"><i class="fa fa-check"></i><b>3.5</b> Outliers</a></li>
+<li class="chapter" data-level="3.6" data-path="mtcars.html"><a href="mtcars.html#histograma"><i class="fa fa-check"></i><b>3.6</b> Histograma</a></li>
+<li class="chapter" data-level="3.7" data-path="mtcars.html"><a href="mtcars.html#regresion"><i class="fa fa-check"></i><b>3.7</b> Regresión</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Ejercicios FESTAD</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="chickweight" class="section level1">
+<h1><span class="header-section-number">Ejercicio 1</span> - <code>ChickWeight</code></h1>
+<div id="cargando-los-datos" class="section level2">
+<h2><span class="header-section-number">1.1</span> Cargando los datos</h2>
+<p>Cargamos la librería <code>ChickWeight</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">data</span>(ChickWeight)
+<span class="kw">head</span>(ChickWeight)</code></pre></div>
+<pre><code>##   weight Time Chick Diet
+## 1     42    0     1    1
+## 2     51    2     1    1
+## 3     59    4     1    1
+## 4     64    6     1    1
+## 5     76    8     1    1
+## 6     93   10     1    1</code></pre>
+<p>Veamos un breve resumen de los datos.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(ChickWeight)</code></pre></div>
+<pre><code>##      weight           Time           Chick     Diet   
+##  Min.   : 35.0   Min.   : 0.00   13     : 12   1:220  
+##  1st Qu.: 63.0   1st Qu.: 4.00   9      : 12   2:120  
+##  Median :103.0   Median :10.00   20     : 12   3:120  
+##  Mean   :121.8   Mean   :10.72   10     : 12   4:118  
+##  3rd Qu.:163.8   3rd Qu.:16.00   17     : 12          
+##  Max.   :373.0   Max.   :21.00   19     : 12          
+##                                  (Other):506</code></pre>
+</div>
+<div id="tablas-de-frencuencia" class="section level2">
+<h2><span class="header-section-number">1.2</span> Tablas de frencuencia</h2>
+<p>La tabla de frecuencia absoluta para la variable <code>weight</code> dividida en 10 subintervalos es,</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">table</span>(<span class="kw">cut</span>(ChickWeight$weight,<span class="dt">breaks =</span> <span class="dv">10</span>))</code></pre></div>
+<pre><code>## 
+## (34.7,68.8]  (68.8,103]   (103,136]   (136,170]   (170,204]   (204,238] 
+##         174         111          82          82          51          35 
+##   (238,272]   (272,305]   (305,339]   (339,373] 
+##          18          14           8           3</code></pre>
+<p>Para la variable <code>time</code> dividida en 7 subintervalos es,</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">table</span>(<span class="kw">cut</span>(ChickWeight$Time,<span class="dt">breaks =</span> <span class="dv">7</span>))</code></pre></div>
+<pre><code>## 
+## (-0.021,3]      (3,6]      (6,9]     (9,12]    (12,15]    (15,18] 
+##        100         98         49         98         48         94 
+##    (18,21] 
+##         91</code></pre>
+<p>Para la variable <code>Chick</code></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">tablaDes &lt;-<span class="st"> </span><span class="kw">table</span>(ChickWeight$Chick)
+tablaDes &lt;-tablaDes[<span class="kw">order</span>(<span class="kw">as.numeric</span>(<span class="kw">names</span>(tablaDes)))]
+tablaDes</code></pre></div>
+<pre><code>## 
+##  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 
+## 12 12 12 12 12 12 12 11 12 12 12 12 12 12  8  7 12  2 12 12 12 12 12 12 12 
+## 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 
+## 12 12 12 12 12 12 12 12 12 12 12 12 12 12 12 12 12 12 10 12 12 12 12 12 12</code></pre>
+</div>
+<div id="buscando-outliers" class="section level2">
+<h2><span class="header-section-number">1.3</span> Buscando outliers</h2>
+<p>Calculamos los posibles valores de la variable <code>Time</code></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">vec.time&lt;-<span class="kw">unique</span>(ChickWeight$Time)
+vec.time</code></pre></div>
+<pre><code>##  [1]  0  2  4  6  8 10 12 14 16 18 20 21</code></pre>
+<p>Programamos el siguiente bucle para ver la lista de los outliers.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">for (days in vec.time)
+{
+  df =<span class="st"> </span><span class="kw">subset</span>(ChickWeight, Time==days,<span class="dt">select=</span><span class="kw">c</span>(<span class="dv">1</span>))
+  media.df =<span class="st"> </span><span class="kw">mean</span>(df$weight)
+  var.df =<span class="st"> </span><span class="kw">sd</span>(df$weight)
+  int &lt;-<span class="st"> </span><span class="kw">c</span>(media.df<span class="dv">-2</span>*var.df,media.df<span class="dv">+2</span>*var.df)
+  out &lt;-<span class="st"> </span><span class="kw">which</span>((df &lt;<span class="st"> </span>int[<span class="dv">1</span>]) |<span class="st"> </span>(df &gt;int[<span class="dv">2</span>]))
+  if (<span class="kw">length</span>(out) !=<span class="st"> </span><span class="dv">0</span>){
+    <span class="kw">print</span>(<span class="kw">paste</span>(<span class="kw">c</span>(<span class="st">&quot;Los outliers para la edad&quot;</span>, days, <span class="st">&quot;son&quot;</span>, out),<span class="dt">collapse=</span> <span class="st">&quot; &quot;</span>))
+    }
+}</code></pre></div>
+<pre><code>## [1] &quot;Los outliers para la edad 2 son 3 18&quot;
+## [1] &quot;Los outliers para la edad 4 son 5 16 42&quot;
+## [1] &quot;Los outliers para la edad 6 son 16 42&quot;
+## [1] &quot;Los outliers para la edad 8 son 16 20 42&quot;
+## [1] &quot;Los outliers para la edad 10 son 16 20 34 42&quot;
+## [1] &quot;Los outliers para la edad 12 son 16 20 34&quot;
+## [1] &quot;Los outliers para la edad 14 son 19 33&quot;
+## [1] &quot;Los outliers para la edad 16 son 13 18 21 32&quot;
+## [1] &quot;Los outliers para la edad 18 son 18 21 32&quot;
+## [1] &quot;Los outliers para la edad 20 son 21 32&quot;
+## [1] &quot;Los outliers para la edad 21 son 20 31&quot;</code></pre>
+</div>
+<div id="tabla-de-frecuencia-conjunta" class="section level2">
+<h2><span class="header-section-number">1.4</span> Tabla de frecuencia conjunta</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">conjuDes &lt;-<span class="st"> </span><span class="kw">table</span>(ChickWeight$Chick,ChickWeight$Diet)
+conjunta &lt;-<span class="st"> </span>conjuDes[<span class="kw">order</span>(<span class="kw">as.numeric</span>(<span class="kw">rownames</span>(conjuDes))), ]
+conjunta</code></pre></div>
+<pre><code>##     
+##       1  2  3  4
+##   1  12  0  0  0
+##   2  12  0  0  0
+##   3  12  0  0  0
+##   4  12  0  0  0
+##   5  12  0  0  0
+##   6  12  0  0  0
+##   7  12  0  0  0
+##   8  11  0  0  0
+##   9  12  0  0  0
+##   10 12  0  0  0
+##   11 12  0  0  0
+##   12 12  0  0  0
+##   13 12  0  0  0
+##   14 12  0  0  0
+##   15  8  0  0  0
+##   16  7  0  0  0
+##   17 12  0  0  0
+##   18  2  0  0  0
+##   19 12  0  0  0
+##   20 12  0  0  0
+##   21  0 12  0  0
+##   22  0 12  0  0
+##   23  0 12  0  0
+##   24  0 12  0  0
+##   25  0 12  0  0
+##   26  0 12  0  0
+##   27  0 12  0  0
+##   28  0 12  0  0
+##   29  0 12  0  0
+##   30  0 12  0  0
+##   31  0  0 12  0
+##   32  0  0 12  0
+##   33  0  0 12  0
+##   34  0  0 12  0
+##   35  0  0 12  0
+##   36  0  0 12  0
+##   37  0  0 12  0
+##   38  0  0 12  0
+##   39  0  0 12  0
+##   40  0  0 12  0
+##   41  0  0  0 12
+##   42  0  0  0 12
+##   43  0  0  0 12
+##   44  0  0  0 10
+##   45  0  0  0 12
+##   46  0  0  0 12
+##   47  0  0  0 12
+##   48  0  0  0 12
+##   49  0  0  0 12
+##   50  0  0  0 12</code></pre>
+<p>Las tabla de frecuencias marginales son,</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">marginal.X =<span class="st"> </span><span class="kw">margin.table</span>(conjunta,<span class="dt">margin=</span><span class="dv">1</span>)
+marginal.Y =<span class="st"> </span><span class="kw">margin.table</span>(conjunta,<span class="dt">margin=</span><span class="dv">2</span>)
+marginal.X</code></pre></div>
+<pre><code>## 
+##  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 
+## 12 12 12 12 12 12 12 11 12 12 12 12 12 12  8  7 12  2 12 12 12 12 12 12 12 
+## 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 
+## 12 12 12 12 12 12 12 12 12 12 12 12 12 12 12 12 12 12 10 12 12 12 12 12 12</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">marginal.Y</code></pre></div>
+<pre><code>## 
+##   1   2   3   4 
+## 220 120 120 118</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">tabla &lt;-<span class="st"> </span><span class="kw">addmargins</span>(<span class="kw">prop.table</span>(conjunta)*<span class="dv">100</span>)
+tabla</code></pre></div>
+<pre><code>##      
+##                 1           2           3           4         Sum
+##   1     2.0761246   0.0000000   0.0000000   0.0000000   2.0761246
+##   2     2.0761246   0.0000000   0.0000000   0.0000000   2.0761246
+##   3     2.0761246   0.0000000   0.0000000   0.0000000   2.0761246
+##   4     2.0761246   0.0000000   0.0000000   0.0000000   2.0761246
+##   5     2.0761246   0.0000000   0.0000000   0.0000000   2.0761246
+##   6     2.0761246   0.0000000   0.0000000   0.0000000   2.0761246
+##   7     2.0761246   0.0000000   0.0000000   0.0000000   2.0761246
+##   8     1.9031142   0.0000000   0.0000000   0.0000000   1.9031142
+##   9     2.0761246   0.0000000   0.0000000   0.0000000   2.0761246
+##   10    2.0761246   0.0000000   0.0000000   0.0000000   2.0761246
+##   11    2.0761246   0.0000000   0.0000000   0.0000000   2.0761246
+##   12    2.0761246   0.0000000   0.0000000   0.0000000   2.0761246
+##   13    2.0761246   0.0000000   0.0000000   0.0000000   2.0761246
+##   14    2.0761246   0.0000000   0.0000000   0.0000000   2.0761246
+##   15    1.3840830   0.0000000   0.0000000   0.0000000   1.3840830
+##   16    1.2110727   0.0000000   0.0000000   0.0000000   1.2110727
+##   17    2.0761246   0.0000000   0.0000000   0.0000000   2.0761246
+##   18    0.3460208   0.0000000   0.0000000   0.0000000   0.3460208
+##   19    2.0761246   0.0000000   0.0000000   0.0000000   2.0761246
+##   20    2.0761246   0.0000000   0.0000000   0.0000000   2.0761246
+##   21    0.0000000   2.0761246   0.0000000   0.0000000   2.0761246
+##   22    0.0000000   2.0761246   0.0000000   0.0000000   2.0761246
+##   23    0.0000000   2.0761246   0.0000000   0.0000000   2.0761246
+##   24    0.0000000   2.0761246   0.0000000   0.0000000   2.0761246
+##   25    0.0000000   2.0761246   0.0000000   0.0000000   2.0761246
+##   26    0.0000000   2.0761246   0.0000000   0.0000000   2.0761246
+##   27    0.0000000   2.0761246   0.0000000   0.0000000   2.0761246
+##   28    0.0000000   2.0761246   0.0000000   0.0000000   2.0761246
+##   29    0.0000000   2.0761246   0.0000000   0.0000000   2.0761246
+##   30    0.0000000   2.0761246   0.0000000   0.0000000   2.0761246
+##   31    0.0000000   0.0000000   2.0761246   0.0000000   2.0761246
+##   32    0.0000000   0.0000000   2.0761246   0.0000000   2.0761246
+##   33    0.0000000   0.0000000   2.0761246   0.0000000   2.0761246
+##   34    0.0000000   0.0000000   2.0761246   0.0000000   2.0761246
+##   35    0.0000000   0.0000000   2.0761246   0.0000000   2.0761246
+##   36    0.0000000   0.0000000   2.0761246   0.0000000   2.0761246
+##   37    0.0000000   0.0000000   2.0761246   0.0000000   2.0761246
+##   38    0.0000000   0.0000000   2.0761246   0.0000000   2.0761246
+##   39    0.0000000   0.0000000   2.0761246   0.0000000   2.0761246
+##   40    0.0000000   0.0000000   2.0761246   0.0000000   2.0761246
+##   41    0.0000000   0.0000000   0.0000000   2.0761246   2.0761246
+##   42    0.0000000   0.0000000   0.0000000   2.0761246   2.0761246
+##   43    0.0000000   0.0000000   0.0000000   2.0761246   2.0761246
+##   44    0.0000000   0.0000000   0.0000000   1.7301038   1.7301038
+##   45    0.0000000   0.0000000   0.0000000   2.0761246   2.0761246
+##   46    0.0000000   0.0000000   0.0000000   2.0761246   2.0761246
+##   47    0.0000000   0.0000000   0.0000000   2.0761246   2.0761246
+##   48    0.0000000   0.0000000   0.0000000   2.0761246   2.0761246
+##   49    0.0000000   0.0000000   0.0000000   2.0761246   2.0761246
+##   50    0.0000000   0.0000000   0.0000000   2.0761246   2.0761246
+##   Sum  38.0622837  20.7612457  20.7612457  20.4152249 100.0000000</code></pre>
+</div>
+<div id="histograma-del-peso-en-cada-grupo-de-edad" class="section level2">
+<h2><span class="header-section-number">1.5</span> Histograma del peso en cada grupo de edad</h2>
+<p>Vamos a crear una aplicación <code>Shiny</code> usando el paquete <code>ggplot2</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># library(ggplot2)</span>
+<span class="co"># require(shiny)</span>
+<span class="co"># shinyApp(</span>
+<span class="co">#   </span>
+<span class="co">#   ui = fluidPage(    </span>
+<span class="co">#   </span>
+<span class="co">#   titlePanel(&quot;Histograma del peso de los pollos según el tiempo&quot;),</span>
+<span class="co">#   </span>
+<span class="co">#   sidebarLayout(      </span>
+<span class="co">#     </span>
+<span class="co">#     sidebarPanel(</span>
+<span class="co">#       selectInput(&quot;region&quot;, &quot;Tiempo (días):&quot;, </span>
+<span class="co">#                   choices=unique(ChickWeight$Time)),</span>
+<span class="co">#       hr()</span>
+<span class="co">#     ),</span>
+<span class="co">#     </span>
+<span class="co">#     mainPanel(</span>
+<span class="co">#       plotOutput(&quot;weightPlot&quot;)  </span>
+<span class="co">#     )</span>
+<span class="co">#     </span>
+<span class="co">#   )</span>
+<span class="co"># ),</span>
+<span class="co"># </span>
+<span class="co">#   server = function(input, output) {</span>
+<span class="co">#   </span>
+<span class="co">#   output$weightPlot &lt;- renderPlot({</span>
+<span class="co">#     </span>
+<span class="co">#     ggplot(subset(ChickWeight, Time == input$region), aes(x=weight)) +</span>
+<span class="co">#             geom_histogram(bins=6, colour=&quot;#FE9A2E&quot;, fill=&quot;#F7BE81&quot;) + </span>
+<span class="co">#             labs(x=&quot;Peso (g)&quot;, y = &quot;Densidad&quot;)</span>
+<span class="co">#   })</span>
+<span class="co"># },</span>
+<span class="co"># </span>
+<span class="co">#   options = list(height = 700)</span>
+<span class="co"># )</span></code></pre></div>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="trees.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
+
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
