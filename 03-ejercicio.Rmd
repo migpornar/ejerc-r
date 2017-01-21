@@ -1,0 +1,256 @@
+---
+title: "R - mtcars"
+author: "Miguel Ángel Porras Naranjo"
+output: 
+  html_notebook: 
+    toc: yes
+    toc_depth: 2
+  html_document:
+    toc: true
+    toc_depth: 2
+runtime: shiny
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+# - `mtcars`
+
+## Cargando los datos
+
+Para este ejercicio usaremos la librería `mtcars`.
+
+```{r, message=FALSE}
+data(mtcars)
+attach(mtcars)
+head(mtcars)
+```
+
+Veamos un breve resumen de los datos.
+
+```{r}
+summary(mtcars)
+```
+
+## Tablas de frecuencias
+
+Calculamos las tablas de frecuencias de las variables `cyl` y `gear`
+
+```{r}
+table(cyl)
+```
+
+```{r}
+table(gear)
+```
+
+
+Para obtener la tabla con formato latex, usamos el paquete `Knitr`
+
+```{r}
+library(knitr)
+print(knitr::kable(as.data.frame(table(gear)), format = "latex",
+       col.names = c("Cilindradas","Num. Cilindradas"),align='c',
+       caption="Cilindradas por coches"))
+```
+
+Como este documento esta hecho en `markdown`, exportamos la tabla como `markdown`,
+
+```{r results='hide'}
+library(knitr)
+print(knitr::kable(as.data.frame(table(gear)), format = "markdown",
+       col.names = c("Cilindradas","Num. Cilindradas"),align='c',
+       caption="Cilindradas por coches"))
+```
+
+| Cilindradas | Num. Cilindradas |
+|:-----------:|:----------------:|
+|      3      |        15        |
+|      4      |        12        |
+|      5      |        5         |
+
+## Tablas de frecuencia absolutas, relativas y acumuladas
+
+Realizaremos este apartado para las variables `am` y `carb`. La tabla de frecuencia absoluta es,
+
+```{r results='hide'}
+print(knitr::kable( table(am,carb), format = "markdown",
+align='c',caption="Tabla Transmisión-Nº de carburadores"))
+```
+
+|   | 1 | 2 | 3 | 4 | 6 | 8 |
+|:--|:-:|:-:|:-:|:-:|:-:|:-:|
+|0  | 3 | 6 | 3 | 7 | 0 | 0 |
+|1  | 4 | 4 | 0 | 3 | 1 | 1 |
+
+```{r results='hide'}
+print(knitr::kable(table(am,carb), format = "markdown",
+align='c',caption="Tabla Transmisión-Nº de carburadores"))
+```
+
+La tabla de frecuencia relativa es,
+
+```{r results='hide'}
+print(knitr::kable(prop.table(table(am,carb)), format = "markdown",
+align='c',caption="Tabla Transmisión-Nº de carburadores"))
+```
+|   |    1    |   2    |    3    |    4    |    6    |    8    |
+|:--|:-------:|:------:|:-------:|:-------:|:-------:|:-------:|
+|0  | 0.09375 | 0.1875 | 0.09375 | 0.21875 | 0.00000 | 0.00000 |
+|1  | 0.12500 | 0.1250 | 0.00000 | 0.09375 | 0.03125 | 0.03125 |
+
+La tabla de frecuencia acumulada para `carb` es,
+
+```{r results='hide'}
+print(knitr::kable(cumsum(table(carb))), format = "markdown")
+```
+
+|  | 1 | 2 | 3 | 4 | 6 | 8 |
+|:-|:-:|:-:|:-:|:-:|:-:|:-:|
+|  | 7 |17 |20 |30 |31 |32 |
+
+La tabla de frecuencia acumulada para `am` es,
+
+```{r results='hide'}
+print(knitr::kable(cumsum(table(am))), format = "markdown")
+```
+
+|  | 0 | 1 |
+|:-|:-:|:-:|
+|  |19 |32 |
+
+## Resumen descriptivo
+
+Con la función `summary()`, realiazamos un estudio sobre nuestros datos,
+
+```{r}
+summary(mtcars)
+```
+
+## Outliers
+
+Vamos a estudiar los posibles `outliers` de la variable `wt`. Primero la representamos por un diagrama de caja y bigote
+
+```{r}
+gr <- boxplot(wt)
+```
+
+Observamos que hay dos datos atípicos. Veamos cuales son.
+
+```{r}
+gr$out
+```
+
+A continuación, lo veremos con la variable `hp`
+
+```{r}
+gr <- boxplot(hp)
+```
+
+Observamos que hay un valor atípico.
+
+```{r}
+gr$out
+```
+
+## Histograma
+
+Vamos a calcular el histograma para `drat` y `carb`
+
+```{r}
+hist(drat)
+```
+
+```{r}
+hist(carb)
+```
+
+## Regresión
+
+Estudiamos que variables son mas adecuadas para hacer una regresión.
+
+```{r}
+pairs(mtcars)
+```
+
+Interactuaremos con la siguiente aplicación `shiny` para todas las variables de los datos.
+
+```{r}
+require(shiny)
+shinyApp(
+  
+  ui = fluidPage(    
+  
+  titlePanel("Regresión de Y~X"),
+  
+  sidebarLayout(      
+    
+    sidebarPanel(
+      selectInput("variable1", "Variable Y:", 
+                  choices=c("mpg", "cyl",   
+                 "disp","hp","drat","wt","qsec","vs","am","gear","carb")),
+      hr(),
+      selectInput("variable2", "Variable X:", 
+                  choices=c("mpg", "cyl", 
+                 "disp","hp","drat","wt","qsec","vs","am","gear","carb"))
+    ),
+    
+    mainPanel(
+      fluidRow(column(12, verbatimTextOutput("correlacion")))
+    )
+    
+  )
+),
+
+  server = function(input, output) {
+
+  output$correlacion <- renderPrint({
+    summary(lm(mtcars[input$variable1][,1] ~ mtcars[input$variable2][,1]))
+    #trees[input$variable1][,1], 
+  })
+},
+
+  options = list(height = 750)
+)
+```
+
+De la misma manera, lo haremos para el coeficiente de correlación lineal.
+
+```{r}
+require(shiny)
+shinyApp(
+  
+  ui = fluidPage(    
+  
+  titlePanel("Coeficiente de regresión de Y~X"),
+  
+  sidebarLayout(      
+    
+    sidebarPanel(
+      selectInput("variable1", "Variable Y:", 
+                  choices=c("mpg", "cyl",   
+                 "disp","hp","drat","wt","qsec","vs","am","gear","carb")),
+      hr(),
+      selectInput("variable2", "Variable X:", 
+                  choices=c("mpg", "cyl",   
+                 "disp","hp","drat","wt","qsec","vs","am","gear","carb"))
+    ),
+    
+    mainPanel(
+      fluidRow(column(12, verbatimTextOutput("correlacion")))
+    )
+    
+  )
+),
+
+  server = function(input, output) {
+
+  output$correlacion <- renderPrint({
+    cor(mtcars[input$variable1][,1],mtcars[input$variable2][,1])
+  })
+},
+
+  options = list(height = 450)
+)
+```
+

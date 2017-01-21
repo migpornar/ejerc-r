@@ -1,0 +1,146 @@
+---
+title: "R - ChickenWeight"
+author: "Miguel Ángel Porras Naranjo"
+output: 
+  html_document:
+    toc: true
+    toc_depth: 2
+runtime: shiny
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+# - `ChickWeight`
+
+
+## Cargando los datos
+
+Cargamos la librería `ChickWeight`.
+
+```{r}
+data(ChickWeight)
+head(ChickWeight)
+```
+
+Veamos un breve resumen de los datos.
+
+```{r}
+summary(ChickWeight)
+```
+
+## Tablas de frencuencia
+
+La tabla de frecuencia absoluta para la variable `weight` dividida en 10 subintervalos es,
+
+```{r}
+table(cut(ChickWeight$weight,breaks = 10))
+```
+
+Para la variable `time` dividida en 7 subintervalos es,
+
+```{r}
+table(cut(ChickWeight$Time,breaks = 7))
+```
+
+Para la variable `Chick`
+
+```{r}
+tablaDes <- table(ChickWeight$Chick)
+tablaDes <-tablaDes[order(as.numeric(names(tablaDes)))]
+tablaDes
+```
+
+## Buscando outliers
+
+Calculamos los posibles valores de la variable `Time`
+
+```{r}
+vec.time<-unique(ChickWeight$Time)
+vec.time
+```
+
+Programamos el siguiente bucle para ver la lista de los outliers.
+
+```{r}
+for (days in vec.time)
+{
+  df = subset(ChickWeight, Time==days,select=c(1))
+  media.df = mean(df$weight)
+  var.df = sd(df$weight)
+  int <- c(media.df-2*var.df,media.df+2*var.df)
+  out <- which((df < int[1]) | (df >int[2]))
+  if (length(out) != 0){
+    print(paste(c("Los outliers para la edad", days, "son", out),collapse= " "))
+    }
+}
+```
+
+## Tabla de frecuencia conjunta
+
+```{r}
+conjuDes <- table(ChickWeight$Chick,ChickWeight$Diet)
+conjunta <- conjuDes[order(as.numeric(rownames(conjuDes))), ]
+conjunta
+```
+
+Las tabla de frecuencias marginales son,
+
+```{r}
+marginal.X = margin.table(conjunta,margin=1)
+marginal.Y = margin.table(conjunta,margin=2)
+marginal.X
+marginal.Y
+```
+
+```{r}
+tabla <- addmargins(prop.table(conjunta)*100)
+tabla
+```
+
+## Histograma del peso en cada grupo de edad
+
+Vamos a crear una aplicación `Shiny` usando el paquete `ggplot2`.
+
+```{r}
+library(ggplot2)
+require(shiny)
+shinyApp(
+  
+  ui = fluidPage(    
+  
+  titlePanel("Histograma del peso de los pollos según el tiempo"),
+  
+  sidebarLayout(      
+    
+    sidebarPanel(
+      selectInput("region", "Tiempo (días):", 
+                  choices=unique(ChickWeight$Time)),
+      hr()
+    ),
+    
+    mainPanel(
+      plotOutput("weightPlot")  
+    )
+    
+  )
+),
+
+  server = function(input, output) {
+  
+  output$weightPlot <- renderPlot({
+    
+    ggplot(subset(ChickWeight, Time == input$region), aes(x=weight)) +
+            geom_histogram(bins=6, colour="#FE9A2E", fill="#F7BE81") + 
+            labs(x="Peso (g)", y = "Densidad")
+  })
+},
+
+  options = list(height = 700)
+)
+```
+
+
+
+
+
